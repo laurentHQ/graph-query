@@ -187,7 +187,7 @@ Test graph created:
 
 ### Orchestration Service Graph Enhancement
 
-Applied to `/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json`:
+Applied to `/PATH/TO//graph_data.json`:
 
 **Before enrichment:**
 - 112 nodes

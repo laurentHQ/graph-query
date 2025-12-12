@@ -9,7 +9,7 @@ Fast MCP server for querying, navigating, and incrementally building knowledge g
 ## Installation
 
 Already installed! The server is configured in:
-- `/home/ubuntu/.config/Qoder/SharedClientCache/mcp.json`
+- `~/.claude/mcp.json`
 
 ## Features
 
@@ -244,20 +244,20 @@ Case-insensitive substring matching.
 ```typescript
 // Search for webhook implementations
 await mcp.call('search_graph', {
-  graph_path: '/mnt/.../orchestration/docs/architecture/graph_data.json',
+  graph_path: '/PATH/TO/graph_data.json',
   query: 'webhook',
   type: 'Function'
 });
 
 // Get details about a specific function
 await mcp.call('get_node', {
-  graph_path: '/mnt/.../orchestration/docs/architecture/graph_data.json',
+  graph_path: '/PATH/TO/graph_data.json',
   node_id: 'tech_endpoint_post'
 });
 
 // Find how workflow connects to database
 await mcp.call('find_path', {
-  graph_path: '/mnt/.../orchestration/docs/architecture/graph_data.json',
+  graph_path: '/PATH/TO/graph_data.json',
   from_id: 'workflow_ingestion',
   to_id: 'tech_db_upsert'
 });
@@ -267,7 +267,7 @@ await mcp.call('find_path', {
 
 **Server not appearing:**
 - Restart Claude Code to reload MCP configuration
-- Check `/home/ubuntu/.config/Qoder/SharedClientCache/mcp.json`
+- Check `~/.claude/mcp.json`
 
 **Graph not found:**
 - Use absolute paths for `graph_path` parameter
@@ -321,11 +321,11 @@ save_graph({
 })
 ```
 
-See [INCREMENTAL_BUILDING.md](./INCREMENTAL_BUILDING.md) for detailed examples.
+See [INCREMENTAL_BUILDING.md](./docs/INCREMENTAL_BUILDING.md) for detailed examples.
 
 ## Development
 
-Located at: `/home/ubuntu/.claude/mcp-servers/graph-query/`
+Located at: `graph-query/`
 
 **Files:**
 - `index.js` - Enhanced server with incremental building

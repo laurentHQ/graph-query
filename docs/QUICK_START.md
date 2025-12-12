@@ -7,14 +7,9 @@ The MCP server is installed and configured. **Restart Claude Code** to activate 
 ## 📍 Graph Locations
 
 ```bash
-# Orchestration service (139 nodes)
-/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json
+# repo service (139 nodes)
+/PATH/TO/graph_data.json
 
-# Results service (13 nodes)
-/mnt/disk_2/ml_project/document_extraction_orchestrator/results-service/docs/graph_data.json
-
-# Case service
-/mnt/disk_2/ml_project/document_extraction_orchestrator/case-service/docs/architechture/graph_data.json
 ```
 
 ## 🚀 Quick Examples
@@ -22,7 +17,7 @@ The MCP server is installed and configured. **Restart Claude Code** to activate 
 ### Search for webhook code
 ```javascript
 mcp__graph-query__search_graph({
-  graph_path: "/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json",
+  graph_path: "/PATH/TO//graph_data.json",
   query: "webhook",
   type: "Function",
   limit: 10
@@ -32,7 +27,7 @@ mcp__graph-query__search_graph({
 ### Get function details
 ```javascript
 mcp__graph-query__get_node({
-  graph_path: "/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json",
+  graph_path: "/PATH/TO//graph_data.json",
   node_id: "func_case_orchestration_workflow"
 })
 ```
@@ -40,7 +35,7 @@ mcp__graph-query__get_node({
 ### Find what calls a function
 ```javascript
 mcp__graph-query__get_neighbors({
-  graph_path: "/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json",
+  graph_path: "/PATH/TO//graph_data.json",
   node_id: "func_start_extraction_job",
   direction: "incoming"
 })
@@ -49,7 +44,7 @@ mcp__graph-query__get_neighbors({
 ### Trace workflow to implementation
 ```javascript
 mcp__graph-query__find_path({
-  graph_path: "/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json",
+  graph_path: "/PATH/TO//graph_data.json",
   from_id: "workflow_case_orchestration",
   to_id: "func_retrieve_ocr_results"
 })
@@ -58,14 +53,14 @@ mcp__graph-query__find_path({
 ### See all node types
 ```javascript
 mcp__graph-query__get_node_types({
-  graph_path: "/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json"
+  graph_path: "/PATH/TO//graph_data.json"
 })
 ```
 
 ### List workflow layer
 ```javascript
 mcp__graph-query__list_layer({
-  graph_path: "/mnt/disk_2/ml_project/document_extraction_orchestrator/orchestration/docs/architecture/graph_data.json",
+  graph_path: "/PATH/TO//graph_data.json",
   layer: "workflow"
 })
 ```
@@ -108,7 +103,7 @@ mcp__graph-query__list_layer({
 
 **Tools not appearing:**
 - Restart Claude Code completely
-- Check config: `cat ~/.config/Qoder/SharedClientCache/mcp.json`
+- Check config: `cat ~/.claude/mcp.json`
 - Verify server: `node ~/.claude/mcp-servers/graph-query/index.js`
 
 **"Graph file not found":**

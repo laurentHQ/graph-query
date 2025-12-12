@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "graph-query": {
+      "command": "node",
+      "args": ["/home/ubuntu/.claude/mcp-servers/graph-query/index.js"],
+      "env": {}
+    }
+  }
+}

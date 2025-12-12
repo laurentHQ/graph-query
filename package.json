@@ -1,0 +1,19 @@
+{
+  "name": "@user/graph-query-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for querying knowledge graphs",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "graph-query-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

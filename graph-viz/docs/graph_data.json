@@ -1,0 +1,1095 @@
+{
+  "nodes": [
+    {
+      "id": "workflow_graph_initialization",
+      "type": "Workflow",
+      "label": "Graph Initialization & Rendering",
+      "description": "Loads graph data from JSON, initializes Three.js scene with camera and lights, builds node/edge meshes, and starts animation loop.",
+      "inferred": false
+    },
+    {
+      "id": "workflow_user_interaction",
+      "type": "Workflow",
+      "label": "User Interaction Flow",
+      "description": "Handles mouse events (hover, click, double-click) using raycasting, updates node selection state, displays info panel with node details and connections.",
+      "inferred": false
+    },
+    {
+      "id": "workflow_network_discovery",
+      "type": "Workflow",
+      "label": "Network Discovery",
+      "description": "Performs BFS traversal from selected node to discover connected network, dims non-connected nodes, highlights discovered edges with depth calculation.",
+      "inferred": false
+    },
+    {
+      "id": "workflow_hierarchy_control",
+      "type": "Workflow",
+      "label": "Hierarchy Expand/Collapse",
+      "description": "Manages collapsible technical layer hierarchy, handles expand/collapse actions on double-click, rebuilds graph view with filtered nodes based on hierarchy state.",
+      "inferred": false
+    },
+    {
+      "id": "concept_3d_scene_management",
+      "type": "Concept",
+      "label": "3D Scene Management",
+      "description": "Three.js scene setup with perspective camera, WebGL renderer, orbit controls, ambient and directional lighting, and continuous animation loop.",
+      "inferred": false
+    },
+    {
+      "id": "concept_graph_visualization",
+      "type": "Concept",
+      "label": "Graph Visualization",
+      "description": "3D rendering of knowledge graph nodes as cylinder meshes with text labels, edges as lines with layer-based colors, arranged in multi-layer circular/pyramidal layouts.",
+      "inferred": false
+    },
+    {
+      "id": "concept_interactive_navigation",
+      "type": "Concept",
+      "label": "Interactive Navigation",
+      "description": "Raycasting for node detection, hover effects with 1.2x scale, click selection with 1.3x scale, connection highlighting, and orbit camera controls.",
+      "inferred": false
+    },
+    {
+      "id": "concept_hierarchical_representation",
+      "type": "Concept",
+      "label": "Hierarchical Data Representation",
+      "description": "Tree structure built from contains edges, supports parent-child relationships, tracks expanded/collapsed state, filters nodes by technical level and importance.",
+      "inferred": false
+    },
+    {
+      "id": "concept_network_discovery",
+      "type": "Concept",
+      "label": "Network Discovery Algorithm",
+      "description": "Breadth-first search traversal following both edge connections and hierarchical relationships, discovers connected subgraph with configurable depth limit.",
+      "inferred": false
+    },
+    {
+      "id": "concept_layer_positioning",
+      "type": "Concept",
+      "label": "Layer-Based Positioning",
+      "description": "Three-layer vertical arrangement (workflow at y=120, conceptual at y=0, technical at y=-120) with circular layouts for top layers and pyramidal hierarchy for technical layer.",
+      "inferred": false
+    },
+    {
+      "id": "concept_ui_panel",
+      "type": "Concept",
+      "label": "Info Panel UI",
+      "description": "Side panel displaying node details (type, description, file location), incoming/outgoing connections, network discovery controls, and network statistics.",
+      "inferred": false
+    },
+    {
+      "id": "service_visualization",
+      "type": "Service",
+      "technical_level": "service",
+      "label": "3D Visualization Service",
+      "path": "/",
+      "description": "Complete 3D knowledge graph visualization application with modular ES6 architecture, Three.js rendering, interactive navigation, and hierarchical data management.",
+      "inferred": false
+    },
+    {
+      "id": "module_js",
+      "type": "Module",
+      "technical_level": "module",
+      "label": "js/",
+      "path": "js/",
+      "description": "ES6 module directory containing core visualization logic separated into single-responsibility modules for scene, nodes, edges, interaction, and utilities.",
+      "inferred": false
+    },
+    {
+      "id": "file_main_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/main.js",
+      "file": "js/main.js",
+      "description": "Main entry point orchestrating initialization, loading graph data, building layers, setting up interaction, and exposing global functions.",
+      "inferred": false
+    },
+    {
+      "id": "file_scene_setup_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/scene-setup.js",
+      "file": "js/scene-setup.js",
+      "description": "Three.js scene initialization with camera, renderer, orbit controls, lighting setup, grid floor, and animation loop management.",
+      "inferred": false
+    },
+    {
+      "id": "file_node_builder_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/node-builder.js",
+      "file": "js/node-builder.js",
+      "description": "Node mesh creation and positioning logic with layer-based colors, circular/pyramidal layouts, expand/collapse indicators, and automatic centering for technical layer.",
+      "inferred": false
+    },
+    {
+      "id": "file_edge_builder_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/edge-builder.js",
+      "file": "js/edge-builder.js",
+      "description": "Edge line creation connecting node meshes, manages edge data lookup structures, provides connection highlighting and opacity control.",
+      "inferred": false
+    },
+    {
+      "id": "file_interaction_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/interaction.js",
+      "file": "js/interaction.js",
+      "description": "Mouse event handling with raycasting for node detection, hover/click/double-click handlers, selection state management, and network discovery toggle.",
+      "inferred": false
+    },
+    {
+      "id": "file_info_panel_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/info-panel.js",
+      "file": "js/info-panel.js",
+      "description": "Info panel UI logic displaying node metadata, connections list, network discovery action buttons, and panel close handling with state reset.",
+      "inferred": false
+    },
+    {
+      "id": "file_network_discovery_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/network-discovery.js",
+      "file": "js/network-discovery.js",
+      "description": "BFS network discovery algorithm traversing both edge connections and hierarchical relationships, calculates network depth with configurable maximum depth.",
+      "inferred": false
+    },
+    {
+      "id": "file_hierarchy_controller_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/hierarchy-controller.js",
+      "file": "js/hierarchy-controller.js",
+      "description": "Hierarchy state management building parent-child trees from contains edges, tracking expanded/collapsed nodes, filtering by technical level and importance.",
+      "inferred": false
+    },
+    {
+      "id": "file_utils_js",
+      "type": "File",
+      "technical_level": "file",
+      "label": "js/utils.js",
+      "file": "js/utils.js",
+      "description": "Utility functions for creating text label sprites with canvas rendering, edge color mapping by layer type, and random float offset generation for animations.",
+      "inferred": false
+    },
+    {
+      "id": "file_index_html",
+      "type": "File",
+      "technical_level": "file",
+      "label": "index.html",
+      "file": "index.html",
+      "description": "Main HTML page with Three.js CDN imports, info panel UI structure, hierarchy toolbar with expand/collapse and filter controls, and module script loader.",
+      "inferred": false
+    },
+    {
+      "id": "file_readme_md",
+      "type": "File",
+      "technical_level": "file",
+      "label": "README.md",
+      "file": "README.md",
+      "description": "Documentation covering modular architecture structure, module responsibilities, running instructions with local server requirements, and development workflow guidance.",
+      "inferred": false
+    },
+    {
+      "id": "doc_architecture_guide",
+      "type": "File",
+      "technical_level": "document",
+      "label": "Architecture Guide",
+      "file": "docs/architecture.md",
+      "description": "High-level architecture documentation explaining the 3-layer visualization system, hierarchical node positioning, and Three.js scene management patterns.",
+      "importance": "core",
+      "inferred": false
+    },
+    {
+      "id": "doc_api_reference",
+      "type": "File",
+      "technical_level": "document",
+      "label": "API Reference",
+      "file": "docs/api-reference.md",
+      "description": "Complete API documentation for exported functions including buildLayer, createNodeMesh, and interaction handlers with parameter specifications.",
+      "importance": "supporting",
+      "inferred": false
+    },
+    {
+      "id": "doc_contributing",
+      "type": "File",
+      "technical_level": "document",
+      "label": "Contributing Guide",
+      "file": "docs/CONTRIBUTING.md",
+      "description": "Developer contribution guidelines covering code style, module organization, testing requirements, and pull request process.",
+      "importance": "supporting",
+      "inferred": false
+    },
+    {
+      "id": "class_hierarchy_state",
+      "type": "Class",
+      "technical_level": "class",
+      "label": "HierarchyState",
+      "file": "js/hierarchy-controller.js",
+      "line": 280,
+      "description": "Manages hierarchy expand/collapse state, builds tree from graph edges, tracks visible nodes, applies technical level and importance filters, provides expand/collapse/toggle operations.",
+      "inferred": false
+    },
+    {
+      "id": "func_load_and_initialize",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "loadAndInitialize",
+      "file": "js/main.js",
+      "line": 999,
+      "importance": "core",
+      "entrypoint": true,
+      "description": "Async entry point function that fetches graph_data.json, handles loading errors, and calls initVisualization to start the application.",
+      "inferred": false
+    },
+    {
+      "id": "func_init_visualization",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "initVisualization",
+      "file": "js/main.js",
+      "line": 906,
+      "importance": "core",
+      "entrypoint": true,
+      "description": "Main initialization function that sets up Three.js scene, builds node index, initializes hierarchy state, builds all layers (workflow/conceptual/technical), creates edges, and starts animation.",
+      "inferred": false
+    },
+    {
+      "id": "func_rebuild_graph",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "rebuildGraph",
+      "file": "js/main.js",
+      "line": 792,
+      "importance": "core",
+      "description": "Rebuilds entire graph visualization after hierarchy state changes, removes existing meshes, builds layers with updated visible nodes, and recreates edges.",
+      "inferred": false
+    },
+    {
+      "id": "func_toggle_hierarchy_node",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "toggleHierarchyNode",
+      "file": "js/main.js",
+      "line": 845,
+      "importance": "core",
+      "description": "Toggles node expansion state, updates expand indicator sprite, and triggers graph rebuild to show/hide children.",
+      "inferred": false
+    },
+    {
+      "id": "func_initialize_scene",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "initializeScene",
+      "file": "js/scene-setup.js",
+      "line": 1714,
+      "importance": "core",
+      "entrypoint": true,
+      "description": "Creates Three.js scene with dark blue background, perspective camera, WebGL renderer, orbit controls with auto-rotate, ambient and directional lighting, and grid floor.",
+      "inferred": false
+    },
+    {
+      "id": "func_start_animation_loop",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "startAnimationLoop",
+      "file": "js/scene-setup.js",
+      "line": 1782,
+      "importance": "core",
+      "description": "Starts requestAnimationFrame loop that applies floating animation to nodes using sine wave with phase offsets, updates controls, and renders scene.",
+      "inferred": false
+    },
+    {
+      "id": "func_build_layer",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "buildLayer",
+      "file": "js/node-builder.js",
+      "line": 1494,
+      "importance": "core",
+      "description": "Builds all node meshes for a layer (workflow/conceptual/technical), calculates hierarchy depths for technical layer, positions nodes in circular or pyramidal arrangement, creates visual guides, and returns mesh maps.",
+      "inferred": false
+    },
+    {
+      "id": "func_create_node_mesh",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "createNodeMesh",
+      "file": "js/node-builder.js",
+      "line": 1169,
+      "importance": "core",
+      "description": "Creates cylinder mesh for a node with layer-based color, positions based on layer type (circular for workflow/conceptual, pyramidal for technical), adds text label sprite, and expand/collapse indicator if node has children.",
+      "inferred": false
+    },
+    {
+      "id": "func_build_edges",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "buildEdges",
+      "file": "js/edge-builder.js",
+      "line": 75,
+      "importance": "core",
+      "description": "Creates line geometries connecting node meshes, assigns layer-based colors, builds bidirectional edge data lookup structures (outgoing/incoming), and adds lines to scene.",
+      "inferred": false
+    },
+    {
+      "id": "func_highlight_connections",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "highlightConnections",
+      "file": "js/edge-builder.js",
+      "line": 134,
+      "importance": "core",
+      "description": "Dims all edges to low opacity, then sets connected edges (incoming and outgoing) for specified node to full opacity for visual emphasis.",
+      "inferred": false
+    },
+    {
+      "id": "func_setup_interaction",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "setupInteraction",
+      "file": "js/interaction.js",
+      "line": 612,
+      "importance": "core",
+      "entrypoint": true,
+      "description": "Sets up raycasting and mouse event listeners for hover (1.2x scale), click (1.3x scale, show info panel), and double-click (toggle hierarchy) interactions.",
+      "inferred": false
+    },
+    {
+      "id": "func_toggle_network_discovery",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "toggleNetworkDiscovery",
+      "file": "js/interaction.js",
+      "line": 702,
+      "importance": "core",
+      "description": "Activates or deactivates network discovery mode, performs BFS traversal with max depth 5, dims non-discovered nodes to 0.15 opacity, enlarges discovered nodes, and highlights network edges.",
+      "inferred": false
+    },
+    {
+      "id": "func_show_node_info",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "showNodeInfo",
+      "file": "js/info-panel.js",
+      "line": 505,
+      "importance": "core",
+      "description": "Builds HTML content for info panel showing node label, type, description, file location, incoming/outgoing connections, network discovery button, and network stats if active.",
+      "inferred": false
+    },
+    {
+      "id": "func_close_info_panel",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "closeInfoPanel",
+      "file": "js/info-panel.js",
+      "line": 571,
+      "importance": "core",
+      "description": "Hides info panel, resets selected node scale, deactivates network discovery if active, restores all node opacities, and resets edge highlights.",
+      "inferred": false
+    },
+    {
+      "id": "func_discover_network",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "discoverNetwork",
+      "file": "js/network-discovery.js",
+      "line": 1042,
+      "importance": "core",
+      "description": "BFS algorithm that discovers connected network from starting node up to max depth, follows both edge connections (outgoing/incoming) and hierarchical relationships (parents/children), returns set of discovered node IDs.",
+      "inferred": false
+    },
+    {
+      "id": "func_get_network_depth",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "getNetworkDepth",
+      "file": "js/network-discovery.js",
+      "line": 1105,
+      "importance": "core",
+      "description": "Calculates maximum depth of discovered network from starting node by performing BFS traversal only within discovered nodes set.",
+      "inferred": false
+    },
+    {
+      "id": "func_build_hierarchy_tree",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "buildHierarchyTree",
+      "file": "js/hierarchy-controller.js",
+      "line": 174,
+      "importance": "core",
+      "description": "Builds parent-child hierarchy map from flat node array by processing contains edges, creates bidirectional parent-child relationships for efficient traversal.",
+      "inferred": false
+    },
+    {
+      "id": "func_create_label_sprite",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "createLabelSprite",
+      "file": "js/utils.js",
+      "line": 1815,
+      "importance": "supporting",
+      "description": "Creates text label sprite using canvas 2D rendering with semi-transparent background, layer-based text color, and scaled to appropriate size for 3D scene.",
+      "inferred": false
+    },
+    {
+      "id": "func_get_edge_color",
+      "type": "Function",
+      "technical_level": "function",
+      "label": "getEdgeColor",
+      "file": "js/utils.js",
+      "line": 1848,
+      "importance": "supporting",
+      "description": "Returns color hex value for edge based on layer type (workflow-to-conceptual: blue, conceptual-to-technical: yellow, technical: grey).",
+      "inferred": false
+    },
+    {
+      "id": "method_initialize_default_state",
+      "type": "Method",
+      "technical_level": "method",
+      "label": "initializeDefaultState",
+      "file": "js/hierarchy-controller.js",
+      "line": 297,
+      "importance": "core",
+      "description": "Initializes default hierarchy state by expanding root service nodes and calculating initial visible nodes based on filters.",
+      "inferred": false
+    },
+    {
+      "id": "method_update_visible_nodes",
+      "type": "Method",
+      "technical_level": "method",
+      "label": "updateVisibleNodes",
+      "file": "js/hierarchy-controller.js",
+      "line": 313,
+      "importance": "core",
+      "description": "Recalculates visible nodes set by including workflow/conceptual layers entirely, processing technical layer hierarchy with expand/collapse state, and applying technical level and importance filters.",
+      "inferred": false
+    },
+    {
+      "id": "method_toggle_node",
+      "type": "Method",
+      "technical_level": "method",
+      "label": "toggleNode",
+      "file": "js/hierarchy-controller.js",
+      "line": 405,
+      "importance": "core",
+      "description": "Toggles node between expanded and collapsed state, updates visible nodes accordingly.",
+      "inferred": false
+    },
+    {
+      "id": "method_expand_all",
+      "type": "Method",
+      "technical_level": "method",
+      "label": "expandAll",
+      "file": "js/hierarchy-controller.js",
+      "line": 416,
+      "importance": "core",
+      "description": "Expands all nodes with children in technical layer, clears collapsed set, and updates visible nodes.",
+      "inferred": false
+    },
+    {
+      "id": "method_collapse_all",
+      "type": "Method",
+      "technical_level": "method",
+      "label": "collapseAll",
+      "file": "js/hierarchy-controller.js",
+      "line": 431,
+      "importance": "core",
+      "description": "Collapses all nodes except root nodes, keeps only root service nodes expanded, and updates visible nodes.",
+      "inferred": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "workflow_graph_initialization",
+      "target": "concept_3d_scene_management",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "workflow_graph_initialization",
+      "target": "concept_graph_visualization",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "workflow_graph_initialization",
+      "target": "concept_layer_positioning",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "workflow_user_interaction",
+      "target": "concept_interactive_navigation",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "workflow_user_interaction",
+      "target": "concept_ui_panel",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "workflow_network_discovery",
+      "target": "concept_network_discovery",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "workflow_hierarchy_control",
+      "target": "concept_hierarchical_representation",
+      "type": "includes",
+      "layer": "workflow-to-conceptual"
+    },
+    {
+      "source": "concept_3d_scene_management",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "concept_graph_visualization",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "concept_interactive_navigation",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "concept_hierarchical_representation",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "concept_network_discovery",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "concept_layer_positioning",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "concept_ui_panel",
+      "target": "service_visualization",
+      "type": "implemented_by",
+      "layer": "conceptual-to-technical"
+    },
+    {
+      "source": "service_visualization",
+      "target": "module_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "service_visualization",
+      "target": "file_index_html",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "service_visualization",
+      "target": "file_readme_md",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "service_visualization",
+      "target": "doc_architecture_guide",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "service_visualization",
+      "target": "doc_api_reference",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "service_visualization",
+      "target": "doc_contributing",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "doc_architecture_guide",
+      "target": "concept_3d_scene_management",
+      "type": "describes",
+      "layer": "technical",
+      "description": "Architecture guide explains 3D scene setup and management patterns"
+    },
+    {
+      "source": "doc_architecture_guide",
+      "target": "concept_hierarchical_representation",
+      "type": "describes",
+      "layer": "technical",
+      "description": "Architecture guide documents the hierarchical visualization approach"
+    },
+    {
+      "source": "doc_api_reference",
+      "target": "doc_architecture_guide",
+      "type": "references",
+      "layer": "technical",
+      "description": "API reference links to architecture guide for context"
+    },
+    {
+      "source": "doc_contributing",
+      "target": "file_readme_md",
+      "type": "supplements",
+      "layer": "technical",
+      "description": "Contributing guide provides additional details beyond README"
+    },
+    {
+      "source": "doc_api_reference",
+      "target": "file_node_builder_js",
+      "type": "guides_implementation_of",
+      "layer": "technical",
+      "description": "API docs guide the implementation in node-builder module"
+    },
+    {
+      "source": "module_js",
+      "target": "file_main_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_scene_setup_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_node_builder_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_edge_builder_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_interaction_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_info_panel_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_network_discovery_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_hierarchy_controller_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "module_js",
+      "target": "file_utils_js",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "func_load_and_initialize",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "func_init_visualization",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "func_rebuild_graph",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "func_toggle_hierarchy_node",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_scene_setup_js",
+      "target": "func_initialize_scene",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_scene_setup_js",
+      "target": "func_start_animation_loop",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_node_builder_js",
+      "target": "func_build_layer",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_node_builder_js",
+      "target": "func_create_node_mesh",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_edge_builder_js",
+      "target": "func_build_edges",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_edge_builder_js",
+      "target": "func_highlight_connections",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_interaction_js",
+      "target": "func_setup_interaction",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_interaction_js",
+      "target": "func_toggle_network_discovery",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_info_panel_js",
+      "target": "func_show_node_info",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_info_panel_js",
+      "target": "func_close_info_panel",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_network_discovery_js",
+      "target": "func_discover_network",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_network_discovery_js",
+      "target": "func_get_network_depth",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_hierarchy_controller_js",
+      "target": "func_build_hierarchy_tree",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_hierarchy_controller_js",
+      "target": "class_hierarchy_state",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_utils_js",
+      "target": "func_create_label_sprite",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "file_utils_js",
+      "target": "func_get_edge_color",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "class_hierarchy_state",
+      "target": "method_initialize_default_state",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "class_hierarchy_state",
+      "target": "method_update_visible_nodes",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "class_hierarchy_state",
+      "target": "method_toggle_node",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "class_hierarchy_state",
+      "target": "method_expand_all",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "class_hierarchy_state",
+      "target": "method_collapse_all",
+      "type": "contains",
+      "layer": "technical"
+    },
+    {
+      "source": "func_load_and_initialize",
+      "target": "func_init_visualization",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_init_visualization",
+      "target": "func_initialize_scene",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_init_visualization",
+      "target": "func_build_layer",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_init_visualization",
+      "target": "func_build_edges",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_init_visualization",
+      "target": "func_setup_interaction",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_init_visualization",
+      "target": "func_start_animation_loop",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_rebuild_graph",
+      "target": "func_build_layer",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_rebuild_graph",
+      "target": "func_build_edges",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_build_layer",
+      "target": "func_create_node_mesh",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_create_node_mesh",
+      "target": "func_create_label_sprite",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_build_edges",
+      "target": "func_get_edge_color",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_setup_interaction",
+      "target": "func_show_node_info",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_setup_interaction",
+      "target": "func_highlight_connections",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_toggle_network_discovery",
+      "target": "func_discover_network",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_toggle_network_discovery",
+      "target": "func_show_node_info",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "func_show_node_info",
+      "target": "func_get_network_depth",
+      "type": "calls",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "file_scene_setup_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "file_node_builder_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "file_edge_builder_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "file_interaction_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "file_info_panel_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_main_js",
+      "target": "file_hierarchy_controller_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_node_builder_js",
+      "target": "file_utils_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_edge_builder_js",
+      "target": "file_utils_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_interaction_js",
+      "target": "file_edge_builder_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_interaction_js",
+      "target": "file_info_panel_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_interaction_js",
+      "target": "file_network_discovery_js",
+      "type": "imports",
+      "layer": "technical"
+    },
+    {
+      "source": "file_info_panel_js",
+      "target": "file_network_discovery_js",
+      "type": "imports",
+      "layer": "technical"
+    }
+  ],
+  "layers": {
+    "workflow": [
+      "workflow_graph_initialization",
+      "workflow_user_interaction",
+      "workflow_network_discovery",
+      "workflow_hierarchy_control"
+    ],
+    "conceptual": [
+      "concept_3d_scene_management",
+      "concept_graph_visualization",
+      "concept_interactive_navigation",
+      "concept_hierarchical_representation",
+      "concept_network_discovery",
+      "concept_layer_positioning",
+      "concept_ui_panel"
+    ],
+    "technical": [
+      "service_visualization",
+      "module_js",
+      "file_main_js",
+      "file_scene_setup_js",
+      "file_node_builder_js",
+      "file_edge_builder_js",
+      "file_interaction_js",
+      "file_info_panel_js",
+      "file_network_discovery_js",
+      "file_hierarchy_controller_js",
+      "file_utils_js",
+      "file_index_html",
+      "file_readme_md",
+      "doc_architecture_guide",
+      "doc_api_reference",
+      "doc_contributing",
+      "class_hierarchy_state",
+      "func_load_and_initialize",
+      "func_init_visualization",
+      "func_rebuild_graph",
+      "func_toggle_hierarchy_node",
+      "func_initialize_scene",
+      "func_start_animation_loop",
+      "func_build_layer",
+      "func_create_node_mesh",
+      "func_build_edges",
+      "func_highlight_connections",
+      "func_setup_interaction",
+      "func_toggle_network_discovery",
+      "func_show_node_info",
+      "func_close_info_panel",
+      "func_discover_network",
+      "func_get_network_depth",
+      "func_build_hierarchy_tree",
+      "func_create_label_sprite",
+      "func_get_edge_color",
+      "method_initialize_default_state",
+      "method_update_visible_nodes",
+      "method_toggle_node",
+      "method_expand_all",
+      "method_collapse_all"
+    ]
+  }
+}
